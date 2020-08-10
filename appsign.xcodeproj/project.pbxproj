@@ -125,6 +125,8 @@
 		4519EDE3246680D700DFBAF6 /* appsign */ = {
 			isa = PBXGroup;
 			children = (
+				45E9CED824E13DAF008D6294 /* weui-swift */,
+				45C2274224DBFF1D00CE6B49 /* Style */,
 				4519EE192466AD1300DFBAF6 /* Extension */,
 				4519EE14246681CE00DFBAF6 /* View */,
 				4519EDE4246680D700DFBAF6 /* AppDelegate.swift */,
@@ -167,7 +169,6 @@
 		4519EE14246681CE00DFBAF6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				45C2274224DBFF1D00CE6B49 /* Style */,
 				45C2273924DAB84800CE6B49 /* Control */,
 				45E8E760246D34FE005EEEFC /* Dailog */,
 				451AFB3C246A3955002FFF71 /* PasswordLogin.swift */,
@@ -213,6 +214,13 @@
 				45C2273724DA977500CE6B49 /* FailedDailog.swift */,
 			);
 			path = Dailog;
+			sourceTree = "<group>";
+		};
+		45E9CED824E13DAF008D6294 /* weui-swift */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "weui-swift";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
