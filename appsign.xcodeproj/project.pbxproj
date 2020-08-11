@@ -28,6 +28,8 @@
 		45C2274A24DC0F3D00CE6B49 /* Radio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C2274924DC0F3D00CE6B49 /* Radio.swift */; };
 		45E8E75F246D2F35005EEEFC /* GoRealNameDailog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E8E75E246D2F35005EEEFC /* GoRealNameDailog.swift */; };
 		45E8E762246D3794005EEEFC /* SuccessDailog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E8E761246D3794005EEEFC /* SuccessDailog.swift */; };
+		45E9CEDA24E1541A008D6294 /* weui_swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E9CED924E1541A008D6294 /* weui_swift.swift */; };
+		45E9CEDE24E239B4008D6294 /* elem-ui-btn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E9CEDD24E239B4008D6294 /* elem-ui-btn.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		45C2274924DC0F3D00CE6B49 /* Radio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Radio.swift; sourceTree = "<group>"; };
 		45E8E75E246D2F35005EEEFC /* GoRealNameDailog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoRealNameDailog.swift; sourceTree = "<group>"; };
 		45E8E761246D3794005EEEFC /* SuccessDailog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessDailog.swift; sourceTree = "<group>"; };
+		45E9CED924E1541A008D6294 /* weui_swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weui_swift.swift; sourceTree = "<group>"; };
+		45E9CEDD24E239B4008D6294 /* elem-ui-btn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "elem-ui-btn.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +129,7 @@
 		4519EDE3246680D700DFBAF6 /* appsign */ = {
 			isa = PBXGroup;
 			children = (
+				45E9CEDB24E236E8008D6294 /* element-ui */,
 				45E9CED824E13DAF008D6294 /* weui-swift */,
 				45C2274224DBFF1D00CE6B49 /* Style */,
 				4519EE192466AD1300DFBAF6 /* Extension */,
@@ -219,8 +224,25 @@
 		45E9CED824E13DAF008D6294 /* weui-swift */ = {
 			isa = PBXGroup;
 			children = (
+				45E9CED924E1541A008D6294 /* weui_swift.swift */,
 			);
 			path = "weui-swift";
+			sourceTree = "<group>";
+		};
+		45E9CEDB24E236E8008D6294 /* element-ui */ = {
+			isa = PBXGroup;
+			children = (
+				45E9CEDC24E23717008D6294 /* btn */,
+			);
+			path = "element-ui";
+			sourceTree = "<group>";
+		};
+		45E9CEDC24E23717008D6294 /* btn */ = {
+			isa = PBXGroup;
+			children = (
+				45E9CEDD24E239B4008D6294 /* elem-ui-btn.swift */,
+			);
+			path = btn;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,9 +377,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				451AFB3D246A3955002FFF71 /* PasswordLogin.swift in Sources */,
+				45E9CEDA24E1541A008D6294 /* weui_swift.swift in Sources */,
 				45C2274124DBFF1800CE6B49 /* BlueButtonStyle.swift in Sources */,
 				45C2273D24DBFBBB00CE6B49 /* MobileTextField.swift in Sources */,
 				4519EDE5246680D700DFBAF6 /* AppDelegate.swift in Sources */,
+				45E9CEDE24E239B4008D6294 /* elem-ui-btn.swift in Sources */,
 				45C2274424DC050200CE6B49 /* OrDivider.swift in Sources */,
 				45C2274A24DC0F3D00CE6B49 /* Radio.swift in Sources */,
 				4519EE162466824500DFBAF6 /* PrivateDailog.swift in Sources */,
