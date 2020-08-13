@@ -17,27 +17,35 @@ enum ButtonType: String {
     case danger
 }
 
-struct elem_btn_style: ButtonStyle {
-
-    public var type: ButtonType? = .normal
-    public var plain = false
-    public var round = false
+struct ElemButtonModifier: ViewModifier {
+    public var type: ButtonType = .normal
+    public var plain: Bool = false
+    public var round: Bool = false
     
-    func makeBody(configuration: Configuration) -> some View {
-        let bg = "ele-btn-" + self.type!.rawValue + "-bg" + (self.plain ? "-plain" : "")
-        let fg = "ele-btn-" + self.type!.rawValue + "-txt" + (self.plain ? "-plain" : "")
-        let bd = "ele-btn-" + self.type!.rawValue + "-border" + (self.plain ? "-plain" : "")
-        
+    @Environment(\.isEnabled) private var isEnabled
+
+    func body(content: Content) -> some View {
+        let bg = "ele-btn-" + self.type.rawValue + "-bg" + (self.plain ? "-plain" : "")
+        let fg = "ele-btn-" + self.type.rawValue + "-txt" + (self.plain ? "-plain" : "")
+        let bd = "ele-btn-" + self.type.rawValue + "-border" + (self.plain ? "-plain" : "")
+
         let shape = self.round ? RoundedRectangle(cornerRadius: 22) : RoundedRectangle(cornerRadius: 4)
-        
-        return configuration.label
-            .font(Font.custom("PingFangSC-Medium", size: 16))
-            .frame(maxWidth: .infinity, maxHeight: 44)
-            .foregroundColor(Color(fg))
-            .background(Color(bg))
-            .clipShape(shape)
-            .overlay(shape.stroke(Color(bd), lineWidth: 1))
-            .opacity(configuration.isPressed ? 0.5 : 1)
+
+        return content
+           .font(Font.custom("PingFangSC-Medium", size: 16))
+           .frame(maxWidth: .infinity, maxHeight: 44)
+           .foregroundColor(Color(fg))
+           .background(Color(bg))
+           .clipShape(shape)
+           .overlay(shape.stroke(Color(bd), lineWidth: 1))
+           .opacity(self.isEnabled ? 1 : 0.5)
+
+    }
+}
+
+extension Button {
+    func elemStyle(type:ButtonType = .normal, plain:Bool = false, round:Bool = false) -> some View {
+        self.modifier(ElemButtonModifier(type: type, plain: plain, round: round))
     }
 }
 
@@ -47,79 +55,78 @@ struct elem_btn_Previews: PreviewProvider {
             VStack(alignment: .center, spacing: 10, content: {
                 Button("默认按钮") {
 
-                    }.buttonStyle(elem_btn_style())
-
+                }.elemStyle()
+                
                 Button("主要按钮") {
 
-                }.buttonStyle(elem_btn_style(type: .primary))
+                }.elemStyle(type: .primary)
                 
                 Button("成功按钮") {
 
-                }.buttonStyle(elem_btn_style(type: .success))
+                }.elemStyle(type: .success)
                 
                 Button("信息按钮") {
 
-                }.buttonStyle(elem_btn_style(type: .info))
+                }.elemStyle(type: .info)
                 
                 Button("警告按钮") {
 
-                }.buttonStyle(elem_btn_style(type: .warning))
+                }.elemStyle(type: .warning)
                 
                 Button("危险按钮") {
-
-                }.buttonStyle(elem_btn_style(type: .danger))
+                }.elemStyle(type: .danger)
             })
             
             VStack(alignment: .center, spacing: 10, content: {
                 Button("默认按钮") {
 
-                }.buttonStyle(elem_btn_style(plain: true))
+                }.elemStyle(plain: true)
 
                 Button("主要按钮") {
 
-                }.buttonStyle(elem_btn_style(type: .primary, plain: true))
+                }.elemStyle(type: .primary, plain: true)
                 
                 Button("成功按钮") {
 
-                }.buttonStyle(elem_btn_style(type: .success, plain: true))
+                }.elemStyle(type: .success, plain: true)
                 
                 Button("信息按钮") {
 
-                }.buttonStyle(elem_btn_style(type: .info, plain: true))
+                }.elemStyle(type: .info, plain: true)
                 
                 Button("警告按钮") {
 
-                }.buttonStyle(elem_btn_style(type: .warning, plain: true))
+                }.elemStyle(type: .warning, plain: true)
                 
                 Button("危险按钮") {
 
-                }.buttonStyle(elem_btn_style(type: .danger, plain: true))
+                }.elemStyle(type: .danger, plain: true)
             })
             
             VStack(alignment: .center, spacing: 10, content: {
                 Button("默认按钮") {
 
-                }.buttonStyle(elem_btn_style(round: true))
+                }.elemStyle(round: true)
 
                 Button("主要按钮") {
 
-                }.buttonStyle(elem_btn_style(type: .primary, round: true))
+                }.elemStyle(type: .primary, round: true)
                 
                 Button("成功按钮") {
 
-                }.buttonStyle(elem_btn_style(type: .success, round: true))
+                }.elemStyle(type: .success, round: true)
                 
                 Button("信息按钮") {
 
-                }.buttonStyle(elem_btn_style(type: .info, round: true))
+                }.elemStyle(type: .info, round: true)
                 
                 Button("警告按钮") {
 
-                }.buttonStyle(elem_btn_style(type: .warning, round: true))
+                }.elemStyle(type: .warning, round: true)
                 
                 Button("危险按钮") {
 
-                }.buttonStyle(elem_btn_style(type: .danger, round: true))
+                    }.elemStyle(type: .danger, round: true).disabled(true)
             })
             
         }
