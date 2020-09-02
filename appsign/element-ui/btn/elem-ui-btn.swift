@@ -43,10 +43,14 @@ struct ElemButtonModifier: ViewModifier {
     }
 }
 
-extension Button {
-    func elemStyle(type:ButtonType = .normal, plain:Bool = false, round:Bool = false) -> some View {
-        self.modifier(ElemButtonModifier(type: type, plain: plain, round: round))
+extension View {
+    func elemButtonStyle(type:ButtonType = .normal, plain:Bool = false, round:Bool = false) -> some View {
+           self.modifier(ElemButtonModifier(type: type, plain: plain, round: round))
     }
+}
+
+extension Button {
+
 }
 
 struct elem_btn_Previews: PreviewProvider {
@@ -55,78 +59,78 @@ struct elem_btn_Previews: PreviewProvider {
             VStack(alignment: .center, spacing: 10, content: {
                 Button("默认按钮") {
 
-                }.elemStyle()
+                }.elemButtonStyle()
                 
                 Button("主要按钮") {
 
-                }.elemStyle(type: .primary)
+                }.elemButtonStyle(type: .primary)
                 
                 Button("成功按钮") {
 
-                }.elemStyle(type: .success)
+                }.elemButtonStyle(type: .success)
                 
                 Button("信息按钮") {
 
-                }.elemStyle(type: .info)
+                }.elemButtonStyle(type: .info)
                 
                 Button("警告按钮") {
 
-                }.elemStyle(type: .warning)
+                }.elemButtonStyle(type: .warning)
                 
                 Button("危险按钮") {
-                }.elemStyle(type: .danger)
+                }.elemButtonStyle(type: .danger)
             })
             
             VStack(alignment: .center, spacing: 10, content: {
                 Button("默认按钮") {
 
-                }.elemStyle(plain: true)
+                }.elemButtonStyle(plain: true)
 
                 Button("主要按钮") {
 
-                }.elemStyle(type: .primary, plain: true)
+                }.elemButtonStyle(type: .primary, plain: true)
                 
                 Button("成功按钮") {
 
-                }.elemStyle(type: .success, plain: true)
+                }.elemButtonStyle(type: .success, plain: true)
                 
                 Button("信息按钮") {
 
-                }.elemStyle(type: .info, plain: true)
+                }.elemButtonStyle(type: .info, plain: true)
                 
                 Button("警告按钮") {
 
-                }.elemStyle(type: .warning, plain: true)
+                }.elemButtonStyle(type: .warning, plain: true)
                 
                 Button("危险按钮") {
 
-                }.elemStyle(type: .danger, plain: true)
+                }.elemButtonStyle(type: .danger, plain: true)
             })
             
             VStack(alignment: .center, spacing: 10, content: {
                 Button("默认按钮") {
 
-                }.elemStyle(round: true)
+                }.elemButtonStyle(round: true)
 
                 Button("主要按钮") {
 
-                }.elemStyle(type: .primary, round: true)
+                }.elemButtonStyle(type: .primary, round: true)
                 
                 Button("成功按钮") {
 
-                }.elemStyle(type: .success, round: true)
+                }.elemButtonStyle(type: .success, round: true)
                 
                 Button("信息按钮") {
 
-                }.elemStyle(type: .info, round: true)
+                }.elemButtonStyle(type: .info, round: true)
                 
                 Button("警告按钮") {
 
-                }.elemStyle(type: .warning, round: true)
+                }.elemButtonStyle(type: .warning, round: true)
                 
                 Button("危险按钮") {
 
-                    }.elemStyle(type: .danger, round: true).disabled(true)
+                }.elemButtonStyle(type: .danger, round: true).disabled(true)
             })
             
         }
